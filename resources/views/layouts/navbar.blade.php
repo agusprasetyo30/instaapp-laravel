@@ -13,7 +13,8 @@
                   <div class="card card-widget widget-user" style="margin-bottom: 0px">
                   <!-- Add the bg color to the header using any of the bg-* classes -->
                   <div class="widget-user-header bg-info">
-                     <h3 class="widget-user-username">
+                     <h4>Lorem Ipsum</h4>
+                     {{-- <h3 class="widget-user-username"> --}}
                         {{-- @php
                            $kata = \Auth::user()->name;
                            // $kata = "Agus Prasetyo";
@@ -28,7 +29,7 @@
                         {{-- 123
                            {{-- <h5 class="widget-user-desc" style="font-size: 15px">{{ \Auth::user()->email }}</h5> --}}
                            {{-- <h5 class="widget-user-desc" style="font-size: 15px">aasd</h5> --}}
-                        aaa</h3>
+                        {{-- aaa</h3> --}}
                   </div>
                   <div class="widget-user-image">
                      {{-- <img class="img-circle elevation-2" src="{{ asset('storage/' . \Auth::user()->avatar) }}" style="height: 100px; width: 100px" alt="User Avatar"> --}}
@@ -36,12 +37,14 @@
                   </div>
                   <div class="card-footer">
                      <div class="row">
-                        <div class="col-md-12 mt-3">
+                        <div class="col-md-12 mt-2">
                            {{-- <form action="{{ route('logout') }}" method="post">
                               @csrf
                            </form> --}}
-                           <a href="#" class="btn btn-sm btn-primary btn-block">Profile</a>
-                           <input type="submit" class="btn btn-sm btn-danger btn-block" value="Logout">
+                           <a href="#" class="btn btn-sm btn-default btn-block border-0 text-left">Profile</a>
+                           <a href="#" class="btn btn-sm btn-default btn-block border-0 text-left">Pengaturan</a>
+                           <hr>
+                           <input type="submit" class="btn btn-sm btn-default btn-block border-0 text-left" value="Logout">
                         </div>
                         
                      </div>
