@@ -41,7 +41,7 @@
                               @csrf
                            </form> --}}
                            <a href="#" class="btn btn-sm btn-primary btn-block">Profile</a>
-                           <input type="submit" class="btn btn-sm btn-danger btn-block" value="LOGOUT">
+                           <input type="submit" class="btn btn-sm btn-danger btn-block" value="Logout">
                         </div>
                         
                      </div>
