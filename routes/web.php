@@ -35,7 +35,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::get('/post', 'PostController@post')->name('post');
-    Route::get('/add-post', 'PostController@addPost')->name('add-post');
+    
+    Route::get('/add-post', 'PostController@addPostPage')->name('add-post-page');
+    Route::post('/add-post', 'PostController@addPost')->name('add-post');
 });
 
 

@@ -29,7 +29,7 @@
             <div class="col-md-8">
                <h4 class="d-inline">{{ \Auth::user()->name }}</h4> 
                <a class="btn btn-sm btn-edit-profil" href="{{ route('pengaturan') }}">Edit Profil</a>
-               <a class="btn btn-sm btn-edit-profil" href="{{ route('add-post') }}">Tambah Postingan</a>
+               <a class="btn btn-sm btn-edit-profil" href="{{ route('add-post-page') }}">Tambah Postingan</a>
                
                <h5>({{ \Auth::user()->username }})</h5>
                <small>{{ \Auth::user()->email }}</small>

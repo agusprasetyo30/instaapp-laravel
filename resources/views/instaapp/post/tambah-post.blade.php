@@ -28,38 +28,41 @@
          <div class="card-header">
             <h4 class="card-title">Tambah Postingan</h4>
          </div>
-         <div class="card-body">
-            <div class="row">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Upload Foto
-                  </label>
+         <form action="{{ route('add-post') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="card-body">
+               <div class="row">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Upload Foto
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <div>
+                        <input type="file" class="form-control font-size-11" name="image" id="profil">
+                     </div>
+                  </div>
                </div>
-               <div class="col-md-8">
-                  <div>
-                     <input type="file" class="form-control font-size-11" name="" id="profil">
+               <div class="row mt-3">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Caption
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <textarea class="form-control font-size-11" name="caption" rows="3"></textarea>
+                  </div>
+               </div>
+               <div class="row mt-2">
+                  <div class="col-md-2 text-right mt-1">
+                     
+                  </div>
+                  <div class="col-md-8">
+                     <input type="submit" value="Tambah Postingan" class="btn btn-primary btn-sm">
                   </div>
                </div>
             </div>
-            <div class="row mt-3">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Caption
-                  </label>
-               </div>
-               <div class="col-md-8">
-                  <textarea class="form-control font-size-11" name="" rows="3"></textarea>
-               </div>
-            </div>
-            <div class="row mt-2">
-               <div class="col-md-2 text-right mt-1">
-                  
-               </div>
-               <div class="col-md-8">
-                  <input type="submit" value="Tambah Postingan" class="btn btn-primary btn-sm">
-               </div>
-            </div>
-         </div>
+         </form>
       </div>
 
    </div>

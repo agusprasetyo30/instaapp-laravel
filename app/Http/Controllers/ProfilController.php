@@ -56,7 +56,7 @@ class ProfilController extends Controller
         $user->save();
 
         return redirect()
-            ->route('pengaturan')
+            ->route('profile')
             ->with('success', 'Ubah profil sukses');
 
     }
