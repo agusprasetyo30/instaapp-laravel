@@ -85,11 +85,33 @@ class PostController extends Controller
 
         $comment->user_id = \Auth::user()->id;
         $comment->post_id = $request->get('post_id');
-        $comment->comment = $request->get('comment');
+
+        // Ini digunakan dikarenakan pada dashboard post pengguna ditampilkan semua
+        // Jadi harus ada pembeda untuk menambahkan komentar
+        if ($request->get('status')) {
+            $comment->comment = $request->get('comment' . $request->get('post_id'));
+
+        } else {
+            // Ini untuk post yang ditampilkan spesifik
+            $comment->comment = $request->get('comment');
+        }
 
         $comment->save();
 
         return redirect()->back();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function addLike(Request $request){
+
+        $post = Post::find($request->id);
+        $response = \Auth::user()->toggleLike($post);
+
+        return response()->json(['success'=>$response]);
+    }
 }

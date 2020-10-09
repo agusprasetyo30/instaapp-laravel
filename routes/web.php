@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/add-comment', 'PostController@addComment')->name('add-comment');
 
+    Route::post('/add-like', 'PostController@addLike')->name('add-like');
+
 });
 
 

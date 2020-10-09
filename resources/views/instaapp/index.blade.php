@@ -72,7 +72,10 @@
                               @csrf
                               <div class="row justify-content-center">
                                  <div class="col-md-11">
-                                    <input type="text" placeholder="Tambahkan komentar..." class="input-comment" name="comment" id="">
+                                    <input type="text" placeholder="Tambahkan komentar..." class="input-comment" name="comment{{ $post['id'] }}">
+                                    <input type="hidden" name="post_id" value="{{ $post['id'] }}">
+                                    <input type="hidden" name="status" value="dashboard">
+                                    
                                  </div>
                                  <div class="col-md-1 p-0 text-left ">
                                     <a class="btn-kirim-komentar" onclick="$(this).closest('form').submit()" href="#">Kirim</a>

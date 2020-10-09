@@ -7,6 +7,16 @@
       .font-size-13 {
          font-size: 13px;
       }
+
+      .like-post {
+         background: red;
+         color: white;
+      }
+
+      .like-post:hover {
+         background: red;
+         color: white;
+      }
    </style>
 @endpush
 
@@ -56,18 +66,26 @@
 
                <div class="card-footer pl-1 pr-1 pb-1 pt-0">
                   <div class="like-content">
-                     {{-- btn-danger --}}
-                     <button class="btn btn-default border-0"><span class="fas fa-thumbs-up"></span> Like</button>
-                        <small class="float-right text-muted" style="margin: 8px 4px 0px 0px">
-                           1,000 suka
-                        </small>
+                     <!--cek keadaan sudah di like atau belum-->
+                     {{-- @if (\Auth::user()->hasLiked($post)) --}}
+                     <button id="like" class="btn border-0 btn-sm mt-1 {{ \Auth::user()->hasLiked($post) ? ' like-post' : '' }}">
+                        @if (\Auth::user()->hasLiked($post))
+                           <span class="fas fa-thumbs-down"></span> Tidak Disukai</button>
+
+                        @else
+                           <span class="fas fa-thumbs-up"></span> Disukai</button>                           
+                        @endif
+                        
+                     <small class="float-right text-muted" style="margin: 8px 4px 0px 0px" >
+                        <span id="like-count">{{ $post->likers()->count() }}</span> suka
+                     </small>
                   </div>
                   <form action="{{ route('add-comment') }}" method="post">
                      @csrf
                      <div class="row justify-content-center">
                         <div class="col-md-10">
                            <input type="text" placeholder="Tambahkan komentar..." class="input-comment" name="comment" id="" required>
-                           <input type="hidden" name="post_id" value="{{ $post['id'] }}">
+                           <input type="hidden" name="post_id" id="post_id" value="{{ $post['id'] }}">
                         </div>
                         <div class="col-md-2 p-0 text-left">
                            <a class="btn-kirim-komentar" onclick="$(this).closest('form').submit()" href="#">Kirim</a>
@@ -80,3 +98,39 @@
       </div>
    </div>
 @endsection
+
+@push('js')
+   <script>
+      $(document).ready(function() {
+         $.ajaxSetup({
+            headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+         });
+
+         $('#like').click(function() {
+            var post_id = $('#post_id').val();
+            var like_count = $('#like-count').text();
+            var cObj = $(this);
+
+            $.ajax({
+               type:'POST',
+               url:'/add-like',
+               data:{id:post_id},
+               success:function(data){
+                  if($(cObj).hasClass("like-post")){
+                     $('#like-count').text(parseInt(like_count) - 1);
+                     $('#like').html('<span class="fas fa-thumbs-up"></span> Disukai');
+                     $(cObj).removeClass("like-post");
+
+                  }else{
+                     $('#like-count').text(parseInt(like_count) + 1);
+                     $('#like').html('<span class="fas fa-thumbs-down"></span> Tidak Disukai');
+                     $(cObj).addClass("like-post");
+                  }
+               }
+            });
+         });
+      });
+   </script>
+@endpush
