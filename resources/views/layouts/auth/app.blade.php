@@ -8,11 +8,22 @@
    <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/ion-icon/css/ionicons.min.css') }}">
    <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/adminlte.min.css') }}">
    <title>@yield('title')</title>
-   @stack('css')
+   <style>
+      html, body {
+         margin:0;
+         /* padding:0; */
+         height:100%;
+      }
+      .login-box {
+         width: 460px;
+      }
+
+      .login-card-body {
+         padding: 65px;
+      }
+   </style>
 </head>
 <body>
-   @include('layouts.navbar')
-   
    @yield('content')
    
    <!-- jQuery -->
@@ -21,6 +32,5 @@
    <script src="{{ asset('vendor/adminlte/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
    <!-- AdminLTE App -->
    <script src="{{ asset('vendor/adminlte/js/adminlte.min.js') }}"></script>
-   @stack('js')
 </body>
 </html>

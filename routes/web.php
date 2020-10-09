@@ -13,14 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('instaapp.index');
-// });
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('instaapp.index');
 });
 
-Auth::routes();
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Authentification
+Auth::routes([
+    'login' => true,
+    'logout' => true,
+    'register' => true,
+    'reset' => false,
+    'confirm' => false,
+    'verity' => false,
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
