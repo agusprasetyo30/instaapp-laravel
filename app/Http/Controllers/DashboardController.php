@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 
@@ -9,6 +10,9 @@ class DashboardController extends Controller
 {
     public function indexDashboard()
     {
-        return view('instaapp.index');
+        $posts = Post::with(['users', 'comments'])->get();
+
+        // dd($posts);
+        return view('instaapp.index', compact('posts'));
     }
 }
