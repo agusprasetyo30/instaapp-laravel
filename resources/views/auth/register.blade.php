@@ -1,6 +1,6 @@
 @extends('layouts.auth.app')
 
-@section('title', 'Login Area | InstaApp')
+@section('title', 'Registration | InstaApp')
 
 @section('content')
 <div class="login-page">
@@ -13,7 +13,7 @@
                 <div class="login-logo">
                     <a href="#">InstaApp</a>
                 </div>
-                <form action="{{ route('login') }}" method="POST">
+                <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control" placeholder="Masukan nama" autofocus="on" autocomplete="off" required>
