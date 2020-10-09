@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 's')
+@section('title', $user['username'] . " Post")
 
 @push('css')
    <style>
@@ -15,7 +15,6 @@
       <div class="col-md-8 ">
          <div class="row">
             <div class="col-md-7">
-               
                <img src="{{ asset('storage/' . $post['image']) }}" width="100%" alt="">
             </div>
             <div class="col-md-5">
@@ -70,7 +69,7 @@
                            <input type="text" placeholder="Tambahkan komentar..." class="input-comment" name="comment" id="" required>
                            <input type="hidden" name="post_id" value="{{ $post['id'] }}">
                         </div>
-                        <div class="col-md-2 p-0 text-left ">
+                        <div class="col-md-2 p-0 text-left">
                            <a class="btn-kirim-komentar" onclick="$(this).closest('form').submit()" href="#">Kirim</a>
                         </div>
                      </div>

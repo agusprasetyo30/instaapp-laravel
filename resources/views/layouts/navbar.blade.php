@@ -10,7 +10,12 @@
             <li class="nav-item dropdown" >
 
                <a class="nav-link" data-toggle="dropdown" href="#" >
-                  <img class="img-circle" src="{{ asset('storage/' . \Auth::user()->avatar) }}" width="30px" height="30px" alt="User Avatar">
+                  @if (\Auth::user()->avatar == 'NO IMAGE')
+                     <img class="img-circle" src="{{ asset('img/avatar.png') }}" width="30px" height="30px" alt="User Avatar">
+                     
+                  @else
+                     <img class="img-circle" src="{{ asset('storage/' . \Auth::user()->avatar) }}" width="30px" height="30px" alt="User Avatar">                  
+                  @endif
                   {{-- <img class="img-circle" src="https://www.shareicon.net/data/512x512/2017/01/06/868320_people_512x512.png" width="30px" height="30px" alt="User Avatar"> --}}
                </a>
                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -20,7 +25,13 @@
                      <h5>{{ \Auth::user()->username }}</h5>
                   </div>
                   <div class="widget-user-image">
-                     <img class="img-circle elevation-2" src="{{ asset('storage/' . \Auth::user()->avatar) }}" style="height: 100px; width: 100px" alt="User Avatar">
+                     @if (\Auth::user()->avatar == 'NO IMAGE')
+                        <img class="img-circle" src="{{ asset('img/avatar.png') }}" width="70px" height="70px" alt="User Avatar">
+                        
+                     @else
+                        <img class="img-circle elevation-2" src="{{ asset('storage/' . \Auth::user()->avatar) }}" style="height: 100px; width: 100px" alt="User Avatar">
+                        
+                     @endif
                      {{-- <img class="img-circle elevation-2" src="https://www.shareicon.net/data/512x512/2017/01/06/868320_people_512x512.png" style="height: 100px; width: 100px" alt="User Avatar"> --}}
                   </div>
                   <div class="card-footer">

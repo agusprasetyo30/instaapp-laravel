@@ -34,7 +34,7 @@
                <div class="row">
                   <div class="col-md-2 text-right">
                      @if (\Auth::user()->avatar == 'NO IMAGE')
-                        <img class="img-circle" src="https://www.shareicon.net/data/512x512/2017/01/06/868320_people_512x512.png" width="70px" height="70px" alt="User Avatar">
+                        <img class="img-circle" src="{{ asset('img/avatar.png') }}" width="70px" height="70px" alt="User Avatar">
                         
                      @else
                         <img class="img-circle" src="{{ asset('storage/' . \auth::user()->avatar) }}" width="70px" height="70px" alt="User Avatar">

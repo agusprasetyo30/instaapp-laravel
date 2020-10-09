@@ -19,20 +19,22 @@
                         <!-- Nama akun dan avatar -->
                         <div class="user-content">
                            <img class="img-circle" src="{{ asset('storage/' . $post->users->avatar) }}" width="30px" height="30px" alt="User Avatar">
-                           <a href="#"><span class="ml-2">{{ $post->users->name }}</span></a>
+                           <a href="{{ route('user.profile', $post->users->username) }}"><span class="ml-2">{{ $post->users->name }}</span></a>
                         </div>
                         <!-- ./Nama akun dan avatar -->
                         <!-- Postingan gambar -->
-                        <div class="image-content">
-                           <img src="{{ asset('storage/' . $post->image) }}" width="100%" alt="">
-                        </div>
+                        <a href="{{ route('user.post.detail', ['username' => $post->users->username, 'id' => $post->id]) }}">
+                           <div class="image-content">
+                              <img src="{{ asset('storage/' . $post->image) }}" width="100%" alt="">
+                           </div>
+                        </a>
                         <!-- ./Postingan gambar -->
                         <!-- Konten like -->
                         <div class="like-content">
                            {{-- btn-danger --}}
-                           <button class="btn btn-default border-0"><span class="fas fa-thumbs-up"></span> Like</button>
-                              <small class="float-right text-muted" style="margin: 8px 4px 0px 0px">
-                                 1,000 suka
+                           {{-- <button class="btn btn-default border-0"><span class="fas fa-thumbs-up"></span> Like</button> --}}
+                              <small class="text-muted" style="margin: 8px 4px 0px 0px">
+                                 <span class="fas fa-thumbs-up"></span> 1,000 suka
                               </small>
                         </div>
                         <!-- ./Konten like -->

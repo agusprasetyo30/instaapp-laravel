@@ -27,7 +27,7 @@ class PostController extends Controller
 
         // Komentar
         $comments = Comment::with(['users', 'posts'])
-            ->where('user_id', '=', $user['id'])
+            // ->where('user_id', '=', $user['id'])
             ->where('post_id', '=', $id)
             ->get();
 
@@ -56,6 +56,7 @@ class PostController extends Controller
     {
         $post = new Post();
 
+        $post->user_id = \Auth::user()->id;
         $post->content = $request->get('caption');
 
         $image = $request->file('image');
@@ -68,7 +69,7 @@ class PostController extends Controller
         $post->save();
 
         return redirect()
-            ->route('profile')
+            ->route('profile', \Auth::user()->username)
             ->with('success', 'Berhasil menambahkan postingan baru');
     }
 

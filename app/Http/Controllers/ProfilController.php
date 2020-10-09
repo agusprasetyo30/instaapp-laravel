@@ -22,8 +22,10 @@ class ProfilController extends Controller
             return $query->where('username', '=', $username);
         })->get();
 
-        // dd($posts);
-        return view('instaapp.profil.index', compact('posts'));
+        $user = User::where('username', '=', $username)->first();
+        
+        // dd($user);
+        return view('instaapp.profil.index', compact('posts', 'user'));
     }
 
     /**
@@ -62,7 +64,7 @@ class ProfilController extends Controller
         $user->save();
 
         return redirect()
-            ->route('profile')
+            ->route('user.profile', $request->get('username'))
             ->with('success', 'Ubah profil sukses');
 
     }

@@ -24,15 +24,23 @@
       <div class="col-md-8 m-4">
          <div class="row">
             <div class="col-md-4 text-center">
-               <img src="{{ asset('storage/' . \auth::user()->avatar) }}" class="img-circle elevation-2" style="width: 130px; height: 130px"  alt="">               
+               @if ($user['avatar'] == 'NO IMAGE')
+                  <img class="img-circle" src="{{ asset('img/avatar.png') }}" style="width: 130px; height: 130px" alt="User Avatar">
+
+               @else
+                  <img src="{{ asset('storage/' . $user['avatar']) }}" class="img-circle elevation-2" style="width: 130px; height: 130px"  alt="">               
+               @endif
             </div>
             <div class="col-md-8">
-               <h4 class="d-inline">{{ \Auth::user()->name }}</h4> 
+               <h4 class="d-inline">{{ $user['name'] }}</h4> 
                <a class="btn btn-sm btn-edit-profil" href="{{ route('pengaturan') }}">Edit Profil</a>
                <a class="btn btn-sm btn-edit-profil" href="{{ route('add-post-page') }}">Tambah Postingan</a>
                
-               <h5>({{ \Auth::user()->username }})</h5>
-               <small>{{ \Auth::user()->email }}</small>
+               <h5>({{ $user['username'] }})</h5>
+               <small>{{ $user['email'] }}</small>
+               <p>
+                  <small>{{ $user['bio'] }}</small>
+               </p>
             </div>
          </div>
       </div>
@@ -41,17 +49,25 @@
    <div class="row justify-content-center">
       <div class="col-md-8 m-4">
          <div class="row">
-            @foreach ($posts as $post)
-               <div class="col-md-4">
-                  <a href="{{ route('user.post.detail', ['username' => \Auth::user()->username, 'id' => $post->id]) }}">
-                     <div class="card">
-                        <div class="posts">
-                           <img src="{{ asset('storage/' . $post->image) }}" class="img-thumbnail" alt="">
+            @if (!$posts->isEmpty())
+               @foreach ($posts as $post)
+                  <div class="col-md-4">
+                     <a href="{{ route('user.post.detail', ['username' => \Auth::user()->username, 'id' => $post->id]) }}">
+                        <div class="card">
+                           <div class="posts">
+                              <img src="{{ asset('storage/' . $post->image) }}" class="img-thumbnail" alt="">
+                           </div>
                         </div>
-                     </div>
-                  </a>
+                     </a>
+                  </div>
+               @endforeach
+            
+            @else
+               <div class="col-md-12 text-center">
+                  <small class="text-muted">Tidak ada data</small>
                </div>
-            @endforeach
+            @endif
+
 
          </div>
       </div>
