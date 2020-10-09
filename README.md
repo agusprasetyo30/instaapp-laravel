@@ -37,6 +37,7 @@
 <img src="./7. Tambah Postingan.png" width="100%">
 
 # Package Use
+- Laravel Framework 7.28.4
 - [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
 - [intervention/image](http://image.intervention.io/)
 - [Laravel IDE Helper](https://github.com/barryvdh/laravel-ide-helper)
