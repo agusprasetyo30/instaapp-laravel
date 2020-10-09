@@ -67,3 +67,14 @@
 .btn-kirim-komentar {
    font-size: 13px;
 }
+
+/* Untuk mengatur komentar */
+.komentar-scroll {
+   overflow: auto; 
+   height: 200px;
+}
+
+.komentar-normal {
+   overflow: auto; 
+   height: auto;
+}

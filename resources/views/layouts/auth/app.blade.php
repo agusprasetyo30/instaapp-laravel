@@ -21,6 +21,10 @@
       .login-card-body {
          padding: 65px;
       }
+
+      input[type=text], input[type=email], input[type=password] {
+         font-size: 13px;
+      }
    </style>
 </head>
 <body>

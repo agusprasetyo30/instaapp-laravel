@@ -4,7 +4,7 @@
 
 @push('css')
    <style>
-
+      
    </style>
 @endpush
 
@@ -47,7 +47,7 @@
                         <!-- Komentar -->
                         
                         
-                        <div class="card-footer card-comments pl-3 pr-3 pt-2 pb-1">
+                        <div class="card-footer card-comments pl-3 pr-3 pt-2 pb-1 {{ $post->comments->count() > 3 ? ' komentar-scroll' : ' komentar-normal' }}">
                            @if (!$post->comments->isEmpty())
                               @foreach ($post->comments as $comment)
                                  <div class="card-comment">

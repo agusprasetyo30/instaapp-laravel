@@ -36,7 +36,7 @@
                   </span>
                </a>
                <hr>
-               <div class="content-body" style="overflow: auto; height: 300px;">
+               <div class="content-body {{ $post->comments->count() > 4 ? ' komentar-scroll' : ' komentar-normal' }}" >
                   <span>{{ $post['content'] }}</span>
                   
                   @if (!$comments->isEmpty())
