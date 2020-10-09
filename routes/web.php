@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('instaapp.index');
-});
+})->name('dashboard');
+
+Route::get('/profil', 'ProfilController@index')->name('profile');
+Route::get('/pengaturan', 'ProfilController@pengaturan')->name('pengaturan');
+
+Route::get('/post', 'PostController@post')->name('post');
+Route::get('/add-post', 'PostController@addPost')->name('add-post');
 
 // Route::get('/', function () {
 //     return view('welcome');

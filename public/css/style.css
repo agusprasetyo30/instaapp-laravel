@@ -1,0 +1,69 @@
+.user-content {
+   margin: 10px;
+}
+
+.user-content a {
+   color: black;
+   font-size: 13px;
+}
+
+.user-content a:hover {
+   text-decoration: underline;
+}
+
+.user-content a:active {
+   text-decoration: underline;
+}
+
+/* Untuk content gambar */
+.image-content {
+   width: 100%;
+}
+
+/* Untuk content like */
+.like-content {
+   margin: 8px;
+}
+
+/* Untuk content body/berisi caption */
+.content-body {
+   margin: 8px;
+   font-size: 13px;
+}
+
+.content-body a {
+   color: black;
+}
+
+.content-body a:hover {
+   text-decoration: underline;
+}
+
+.content-body a:active {
+   text-decoration: underline;
+}
+
+/* Untuk content komentar */
+.comment-text .username{
+   font-size: 13px;
+}
+
+.comment-text p{
+   font-size: 13px;
+}
+
+.input-comment {
+   width: 100%;
+   height: 30px;
+   border: none;
+   font-size: 13px;
+   color: #2b2b2b;
+}
+
+.input-comment:focus {
+   outline: 0;
+}
+
+.btn-kirim-komentar {
+   font-size: 13px;
+}

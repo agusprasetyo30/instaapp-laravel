@@ -4,75 +4,7 @@
 
 @push('css')
    <style>
-      .user-content {
-         margin: 10px;
-      }
 
-      .user-content a {
-         color: black;
-         font-size: 13px;
-      }
-   
-      .user-content a:hover {
-         text-decoration: underline;
-      }
-
-      .user-content a:active {
-         text-decoration: underline;
-      }
-
-      /* Untuk content gambar */
-      .image-content {
-         width: 100%;
-      }
-
-      /* Untuk content like */
-      .like-content {
-         margin: 8px;
-      }
-
-      /* Untuk content body/berisi caption */
-      .content-body {
-         margin: 8px;
-         font-size: 13px;
-      }
-
-      .content-body a {
-         color: black;
-      }
-   
-      .content-body a:hover {
-         text-decoration: underline;
-      }
-
-      .content-body a:active {
-         text-decoration: underline;
-      }
-      
-      /* Untuk content komentar */
-      .comment-text .username{
-         font-size: 13px;
-      }
-
-      .comment-text p{
-         font-size: 13px;
-      }
-
-      .input-comment {
-         width: 100%;
-         height: 30px;
-         border: none;
-         font-size: 13px;
-         color: #2b2b2b;
-      }
-
-      .input-comment:focus {
-         outline: 0;
-      }
-
-      .btn-kirim-komentar {
-         font-size: 13px;
-      }
    </style>
 @endpush
 
@@ -108,12 +40,12 @@
                      <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed optio voluptas dolore consequatur accusamus natus cum assumenda recusandae maiores fugiat.</span>
                   </div>
                   <!-- ./Body/Caption -->
+                  <!-- Komentar -->
                   <div class="card-footer card-comments pl-3 pr-3 pt-2 pb-1">
                      <div class="card-comment">
                         <!-- User image -->
                         <img class="img-circle img-sm" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" alt="User Image">
                         
-                        <!-- Komentar -->
                         <div class="comment-text">
                            <span class="username">
                            Maria Gonzales
@@ -150,8 +82,8 @@
                         </div>
                      </div>
                   </div>
+                  <!-- ./Komentar -->
                </div>
-               <!-- ./Komentar -->
             </div>
          </div>
       </div>

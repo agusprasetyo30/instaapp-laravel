@@ -7,8 +7,26 @@
    <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
    <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/ion-icon/css/ionicons.min.css') }}">
    <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/adminlte.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
    <title>@yield('title')</title>
+
    @stack('css')
+
+   <style>
+      .input-cari {
+         width: 200px;
+         height: 25px;
+         border-radius: 5px;
+         border: 1px solid rgb(196, 195, 195);
+         font-size: 10px;
+         text-align: center;
+      }
+
+      .input-cari:focus {
+         outline: 0;
+      }
+   </style>
 </head>
 <body>
    @include('layouts.navbar')

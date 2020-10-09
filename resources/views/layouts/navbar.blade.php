@@ -1,10 +1,14 @@
 <div class="container-fluid p-0">
    <nav class="navbar navbar-expand navbar-light bg-light">
       <div class="container">
-         <a class="navbar-brand" href="#">InstaApp</a>
+         <a class="navbar-brand" href="{{ route('dashboard') }}">InstaApp</a>
+         <input type="search" class="input-cari ml-auto" placeholder="Cari" name="" id="">
+         
          <ul class="navbar-nav ml-auto">
+
             <!-- Pengguna -->
             <li class="nav-item dropdown" >
+
                <a class="nav-link" data-toggle="dropdown" href="#" >
                   {{-- <img class="img-circle" src="{{ asset('storage/' . \Auth::user()->avatar) }}" width="30px" height="30px" alt="User Avatar"> --}}
                   <img class="img-circle" src="https://www.shareicon.net/data/512x512/2017/01/06/868320_people_512x512.png" width="30px" height="30px" alt="User Avatar">
@@ -38,13 +42,14 @@
                   <div class="card-footer">
                      <div class="row">
                         <div class="col-md-12 mt-2">
-                           {{-- <form action="{{ route('logout') }}" method="post">
-                              @csrf
-                           </form> --}}
-                           <a href="#" class="btn btn-sm btn-default btn-block border-0 text-left">Profile</a>
-                           <a href="#" class="btn btn-sm btn-default btn-block border-0 text-left">Pengaturan</a>
+                           
+                           <a href="{{ route('profile') }}" class="btn btn-sm btn-default btn-block border-0 text-left">Profile</a>
+                           <a href="{{ route('pengaturan') }}" class="btn btn-sm btn-default btn-block border-0 text-left">Pengaturan</a>
                            <hr>
-                           <input type="submit" class="btn btn-sm btn-default btn-block border-0 text-left" value="Logout">
+                           <form action="{{ route('logout') }}" method="post">
+                              @csrf
+                              <input type="submit" class="btn btn-sm btn-default btn-block border-0 text-left" value="Logout">
+                           </form>
                         </div>
                         
                      </div>

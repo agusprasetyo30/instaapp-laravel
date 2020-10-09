@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <div class="login-logo">
-                    <a href="#">Login Area</a>
+                    <a href="#">InstaApp</a>
                 </div>
                 <p class="login-box-msg">
                     @if (session()->has('login.failed'))
@@ -25,10 +25,10 @@
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" placeholder="Masukan email" autofocus="on" autocomplete="off" required>
+                        <input type="text" name="username" class="form-control" placeholder="Masukan username" autofocus="on" autocomplete="off" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
