@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42e7b6f69efe033f950819565a719b73",
+    "content-hash": "7f25fcdd12baa9519c1bde359f1d275f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1616,34 +1616,34 @@
             "time": "2020-09-06T17:02:15+00:00"
         },
         {
-            "name": "overtrue/laravel-follow",
-            "version": "2.2.0",
+            "name": "overtrue/laravel-like",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/overtrue/laravel-follow.git",
-                "reference": "fd18ad3f979fd83095e3b4339511ab73263fa72d"
+                "url": "https://github.com/overtrue/laravel-like.git",
+                "reference": "43a47d47d64fbc3cc03b1940a663ab6618840c23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/laravel-follow/zipball/fd18ad3f979fd83095e3b4339511ab73263fa72d",
-                "reference": "fd18ad3f979fd83095e3b4339511ab73263fa72d",
+                "url": "https://api.github.com/repos/overtrue/laravel-like/zipball/43a47d47d64fbc3cc03b1940a663ab6618840c23",
+                "reference": "43a47d47d64fbc3cc03b1940a663ab6618840c23",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.5|~6.0|~7.0|~8.0"
+                "laravel/framework": "^5.5||~6.0||^7.0||^8.0"
             },
             "require-dev": {
                 "brainmaestro/composer-git-hooks": "^2.7",
                 "friendsofphp/php-cs-fixer": "^2.16",
                 "mockery/mockery": "^1.2",
-                "orchestra/testbench": "^5.1|^6.0",
-                "phpunit/phpunit": "~8.0"
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "~9.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Overtrue\\LaravelFollow\\FollowServiceProvider"
+                        "Overtrue\\LaravelLike\\LikeServiceProvider"
                     ]
                 },
                 "hooks": {
@@ -1659,7 +1659,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Overtrue\\LaravelFollow\\": "src"
+                    "Overtrue\\LaravelLike\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1672,8 +1672,8 @@
                     "email": "anzhengchao@gmail.com"
                 }
             ],
-            "description": "User follow unfollow system for Laravel.",
-            "time": "2020-09-09T07:41:54+00:00"
+            "description": "👍 User-like features for Laravel Application.",
+            "time": "2020-09-14T08:57:15+00:00"
         },
         {
             "name": "paragonie/random_compat",

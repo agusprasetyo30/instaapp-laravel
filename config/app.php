@@ -178,7 +178,6 @@ return [
         // Import
         Intervention\Image\ImageServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        Overtrue\LaravelFollow\FollowServiceProvider::class,
     ],
 
     /*
