@@ -11,4 +11,23 @@ class Post extends Model
 
     protected $table = "posts";
     
+    /**
+     * one to many ke tabel user
+     *
+     * @return void
+     */
+    public function users()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
+
+    /**
+     * One to many ke tabel posts
+     *
+     * @return void
+     */
+    public function commets()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

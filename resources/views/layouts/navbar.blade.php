@@ -27,7 +27,7 @@
                      <div class="row">
                         <div class="col-md-12 mt-2">
                            
-                           <a href="{{ route('profile') }}" class="btn btn-sm btn-default btn-block border-0 text-left">Profile</a>
+                           <a href="{{ route('user.profile', \Auth::user()->username) }}" class="btn btn-sm btn-default btn-block border-0 text-left">Profile</a>
                            <a href="{{ route('pengaturan') }}" class="btn btn-sm btn-default btn-block border-0 text-left">Pengaturan</a>
                            <hr>
                            <form action="{{ route('logout') }}" method="post">

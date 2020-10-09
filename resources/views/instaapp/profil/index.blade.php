@@ -41,33 +41,18 @@
    <div class="row justify-content-center">
       <div class="col-md-8 m-4">
          <div class="row">
-            <div class="col-md-4">
-               <a href="{{ route('post') }}">
-                  <div class="card">
-                     <div class="posts">
-                        <img src="https://mmc.tirto.id/image/otf/500x0/2018/11/14/timnas-indonesia-vs-timor-leste-tirto.id-mico-8_ratio-16x9.jpg" class="img-thumbnail" alt="">
+            @foreach ($posts as $post)
+               <div class="col-md-4">
+                  <a href="{{ route('user.post.detail', ['username' => \Auth::user()->username, 'id' => $post->id]) }}">
+                     <div class="card">
+                        <div class="posts">
+                           <img src="{{ asset('storage/' . $post->image) }}" class="img-thumbnail" alt="">
+                        </div>
                      </div>
-                  </div>
-               </a>
-            </div>
-            <div class="col-md-4">
-               <a href="#">
-                  <div class="card">
-                     <div class="posts">
-                        <img src="https://ligacdn.com/storage/images/news/2020/10/08/jens-petter-hauge-ungkapkan-kebahagiaan-usai-debut-bersama-milan.jpeg" class="img-thumbnail" alt="">
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div class="col-md-4">
-               <a href="#">
-                  <div class="card">
-                     <div class="posts">
-                        <img src="https://ligacdn.com/storage/images/news/2020/10/08/jens-petter-hauge-ungkapkan-kebahagiaan-usai-debut-bersama-milan.jpeg" class="img-thumbnail" alt="">
-                     </div>
-                  </div>
-               </a>
-            </div>
+                  </a>
+               </div>
+            @endforeach
+
          </div>
       </div>
    </div>

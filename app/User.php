@@ -37,4 +37,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * One to many ke tabel posts
+     *
+     * @return void
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
+    /**
+     * One to many ke tabel comments
+     *
+     * @return void
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

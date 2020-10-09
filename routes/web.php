@@ -26,18 +26,20 @@ Auth::routes([
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'DashboardController@indexDashboard')->name('dashboard');
     
-    Route::get('/profil', 'ProfilController@index')->name('profile');
-
+    Route::get('/{username}/profile', 'ProfilController@index')->name('user.profile');
+    
     Route::get('/pengaturan', 'ProfilController@pengaturan')->name('pengaturan');
     Route::put('/pengaturan','ProfilController@updateProfil')->name('pengaturan.update');
-
+    
     Route::put('/ubah-password','ProfilController@changePassword')->name('pengaturan.ubah-password');
-
-
-    Route::get('/post', 'PostController@post')->name('post');
     
     Route::get('/add-post', 'PostController@addPostPage')->name('add-post-page');
     Route::post('/add-post', 'PostController@addPost')->name('add-post');
+    
+    Route::get('/{username}/post/{id}', 'PostController@post')->name('user.post.detail');
+
+    Route::post('/add-comment', 'PostController@addComment')->name('add-comment');
+
 });
 
 

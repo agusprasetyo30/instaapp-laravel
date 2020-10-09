@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,9 +16,14 @@ class ProfilController extends Controller
      *
      * @return void
      */
-    public function index()
+    public function index($username)
     {
-        return view('instaapp.profil.index');
+        $posts = Post::whereHas('users', function($query) use ($username) {
+            return $query->where('username', '=', $username);
+        })->get();
+
+        // dd($posts);
+        return view('instaapp.profil.index', compact('posts'));
     }
 
     /**
