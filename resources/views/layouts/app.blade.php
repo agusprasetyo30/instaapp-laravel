@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- CSRF Token -->
+   <meta name="csrf-token" content="{{ csrf_token() }}">
+   
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -31,6 +34,22 @@
 <body>
    @include('layouts.navbar')
    
+   @if (session('success'))
+      <div class="alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+         <h5><i class="icon fas fa-check"></i> Peringatan !</h5>
+         {{ session('success') }}
+      </div>
+   @endif
+
+   @if (session('error'))
+      <div class="alert alert-danger alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+         <h5><i class="icon fas fa-ban"></i> Peringatan !</h5>
+         {{ session('error') }}
+      </div>
+   @endif
+
    @yield('content')
    
    <!-- jQuery -->

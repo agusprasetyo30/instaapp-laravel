@@ -27,77 +27,87 @@
          <div class="card-header">
             <h4 class="card-title">Pengaturan</h4>
          </div>
-         <div class="card-body p-3">
-            <div class="row">
-               <div class="col-md-2 text-right">
-                  <img class="img-circle" src="https://www.shareicon.net/data/512x512/2017/01/06/868320_people_512x512.png" width="70px" height="70px" alt="User Avatar">
+         <form action="{{ route('pengaturan.update') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('put')
+            <div class="card-body p-3">
+               <div class="row">
+                  <div class="col-md-2 text-right">
+                     @if (\Auth::user()->avatar == 'NO IMAGE')
+                        <img class="img-circle" src="https://www.shareicon.net/data/512x512/2017/01/06/868320_people_512x512.png" width="70px" height="70px" alt="User Avatar">
+                        
+                     @else
+                        <img class="img-circle" src="{{ asset('storage/' . \auth::user()->avatar) }}" width="70px" height="70px" alt="User Avatar">
+                        
+                     @endif
+                  </div>
+                  <div class="col-md-8">
+                     <label>Ubah foto profil</label>
+                     <div>
+                        <input type="file" class="form-control font-size-11" name="avatar">
+                     </div>
+                  </div>
                </div>
-               <div class="col-md-8">
-                  <label for="profil">Ubah foto profil</label>
-                  <div>
-                     <input type="file" class="form-control font-size-11" name="" id="profil">
+               <div class="row mt-3">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Username
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <input type="text" class="form-control font-size-11" name="username" value="{{ \Auth::user()->username }}">
+                  </div>
+               </div>
+               <div class="row mt-3">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Nama Pengguna
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <input type="text" class="form-control font-size-11" name="name" value="{{ \Auth::user()->name }}">
+                  </div>
+               </div>
+               <div class="row mt-3">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Bio
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <textarea class="form-control font-size-11" name="bio" cols="30" rows="2">{{ \Auth::user()->bio }}</textarea>
+                  </div>
+               </div>
+               <div class="row mt-3">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Email
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <input type="email" class="form-control font-size-11" name="email" value="{{ \Auth::user()->email }}">
+                  </div>
+               </div>
+               <div class="row mt-3">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Nomor Telepon
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <input type="text" class="form-control font-size-11" name="telp" value="{{ \Auth::user()->telp }}">
+                  </div>
+               </div>
+               <div class="row mt-2">
+                  <div class="col-md-2 text-right mt-1">
+                     
+                  </div>
+                  <div class="col-md-8">
+                     <input type="submit" value="Kirim" class="btn btn-primary btn-sm">
                   </div>
                </div>
             </div>
-            <div class="row mt-3">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Nama
-                  </label>
-               </div>
-               <div class="col-md-8">
-                  <input type="text" class="form-control font-size-11" name="" id="">
-               </div>
-            </div>
-            <div class="row mt-3">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Nama Pengguna
-                  </label>
-               </div>
-               <div class="col-md-8">
-                  <input type="text" class="form-control font-size-11" name="" id="">
-               </div>
-            </div>
-            <div class="row mt-3">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Bio
-                  </label>
-               </div>
-               <div class="col-md-8">
-                  <textarea class="form-control font-size-11" name="" id="" cols="30" rows="2"></textarea>
-               </div>
-            </div>
-            <div class="row mt-3">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Email
-                  </label>
-               </div>
-               <div class="col-md-8">
-                  <input type="email" class="form-control font-size-11" name="" id="">
-               </div>
-            </div>
-            <div class="row mt-3">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Nomor Telepon
-                  </label>
-               </div>
-               <div class="col-md-8">
-                  <input type="email" class="form-control font-size-11" name="" id="">
-               </div>
-            </div>
-            <div class="row mt-2">
-               <div class="col-md-2 text-right mt-1">
-                  
-               </div>
-               <div class="col-md-8">
-                  <input type="submit" value="Kirim" class="btn btn-primary btn-sm">
-               </div>
-            </div>
-         </div>
+         </form>
       </div>
    
       <!--Ubah Password-->
@@ -105,46 +115,50 @@
          <div class="card-header">
             <h4 class="card-title">Ubah Password</h4>
          </div>
-         <div class="card-body">
-            <div class="row">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Kata Sandi Lama
-                  </label>
+         <form action="{{ route('pengaturan.ubah-password') }}" method="post">
+            @csrf
+            @method('put')
+            <div class="card-body">
+               <div class="row">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Kata Sandi Lama
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <input type="password" class="form-control font-size-11" name="old_password">
+                  </div>
                </div>
-               <div class="col-md-8">
-                  <input type="text" class="form-control font-size-11" name="" id="">
+               <div class="row mt-3">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Kata Sandi Baru
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <input type="password" class="form-control font-size-11" name="password">
+                  </div>
+               </div>
+               <div class="row mt-3">
+                  <div class="col-md-2 text-right mt-1">
+                     <label for="">
+                        Konfirmasi Kata Sandi Baru
+                     </label>
+                  </div>
+                  <div class="col-md-8">
+                     <input type="password" class="form-control font-size-11" name="password_confirmation">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-2 text-right mt-1">
+                     
+                  </div>
+                  <div class="col-md-8">
+                     <input type="submit" value="Ubah Kata Sandi" class="btn btn-primary btn-sm">
+                  </div>
                </div>
             </div>
-            <div class="row mt-3">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Kata Sandi Baru
-                  </label>
-               </div>
-               <div class="col-md-8">
-                  <input type="text" class="form-control font-size-11" name="" id="">
-               </div>
-            </div>
-            <div class="row mt-3">
-               <div class="col-md-2 text-right mt-1">
-                  <label for="">
-                     Konfirmasi Kata Sandi Baru
-                  </label>
-               </div>
-               <div class="col-md-8">
-                  <input type="text" class="form-control font-size-11" name="" id="">
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-2 text-right mt-1">
-                  
-               </div>
-               <div class="col-md-8">
-                  <input type="submit" value="Ubah Kata Sandi" class="btn btn-primary btn-sm">
-               </div>
-            </div>
-         </div>
+         </form>
       </div>
 
    </div>

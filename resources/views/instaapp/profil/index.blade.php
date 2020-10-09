@@ -24,15 +24,15 @@
       <div class="col-md-8 m-4">
          <div class="row">
             <div class="col-md-4 text-center">
-               <img src="https://www.shareicon.net/data/512x512/2017/01/06/868320_people_512x512.png" class="img-circle" style="width: 110px"  alt="">
+               <img src="{{ asset('storage/' . \auth::user()->avatar) }}" class="img-circle elevation-2" style="width: 130px; height: 130px"  alt="">               
             </div>
             <div class="col-md-8">
-               <h4 class="d-inline">Agus Prasetyo</h4> 
+               <h4 class="d-inline">{{ \Auth::user()->name }}</h4> 
                <a class="btn btn-sm btn-edit-profil" href="{{ route('pengaturan') }}">Edit Profil</a>
                <a class="btn btn-sm btn-edit-profil" href="{{ route('add-post') }}">Tambah Postingan</a>
                
-               <h5>(agusprasetyo30)</h5>
-               <small>agusprasetyo1889@gmail.com</small>
+               <h5>({{ \Auth::user()->username }})</h5>
+               <small>{{ \Auth::user()->email }}</small>
             </div>
          </div>
       </div>
