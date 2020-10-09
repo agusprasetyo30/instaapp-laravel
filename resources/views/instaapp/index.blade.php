@@ -34,7 +34,7 @@
                            {{-- btn-danger --}}
                            {{-- <button class="btn btn-default border-0"><span class="fas fa-thumbs-up"></span> Like</button> --}}
                               <small class="text-muted" style="margin: 8px 4px 0px 0px">
-                                 <span class="fas fa-thumbs-up"></span> 1,000 suka
+                                 <span class="fas fa-thumbs-up"></span> {{ $post->likers()->count() }} suka
                               </small>
                         </div>
                         <!-- ./Konten like -->

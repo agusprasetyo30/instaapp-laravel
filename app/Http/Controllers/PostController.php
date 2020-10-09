@@ -69,7 +69,7 @@ class PostController extends Controller
         $post->save();
 
         return redirect()
-            ->route('profile', \Auth::user()->username)
+            ->route('user.profile', \Auth::user()->username)
             ->with('success', 'Berhasil menambahkan postingan baru');
     }
 
