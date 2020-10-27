@@ -37,6 +37,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/add-post', 'PostController@addPost')->name('add-post');
     
     Route::get('/{username}/post/{id}', 'PostController@post')->name('user.post.detail');
+    Route::get('/{username}/post/{id}/update', 'PostController@editPost')->name('user.post.edit');
+    Route::put('/{username}/post/{id}/update', 'PostController@updatePost')->name('user.post.update');
+    Route::get('/{username}/post/{id}/delete', 'PostController@deletePost')->name('user.post.delete');
+
 
     Route::post('/add-comment', 'PostController@addComment')->name('add-comment');
     Route::get('/delete-comment/{id}', 'PostController@deleteComment')->name('delete-comment');

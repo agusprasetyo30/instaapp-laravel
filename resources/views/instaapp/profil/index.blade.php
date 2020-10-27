@@ -55,7 +55,7 @@
             @if (!$posts->isEmpty())
                @foreach ($posts as $post)
                   <div class="col-md-4">
-                     <a href="{{ route('user.post.detail', ['username' => \Auth::user()->username, 'id' => $post->id]) }}">
+                     <a href="{{ route('user.post.detail', ['username' => $post->users->username, 'id' => $post->id]) }}">
                         <div class="card">
                            <div class="posts">
                               <img src="{{ asset('storage/' . $post->image) }}" class="img-thumbnail" alt="">

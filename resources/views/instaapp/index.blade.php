@@ -4,7 +4,17 @@
 
 @push('css')
    <style>
-      
+      .delete-comment a {
+         color: black;
+      }
+
+      .delete-comment a:hover {
+         text-decoration: underline;
+      }
+
+      .delete-comment a:active {
+         text-decoration: underline;
+      }
    </style>
 @endpush
 
@@ -56,8 +66,14 @@
                                     
                                     <div class="comment-text">
                                        <span class="username">
-                                       {{ $comment->users->username }}
-                                       <span class="text-muted float-right">{{ date('d/m/Y', strtotime($comment->created_at)) }}</span>
+                                          {{ $comment->users->username }}
+                                          <span class="text-muted float-right">{{ date('d/m/Y', strtotime($comment->created_at)) }}
+                                             @if ($comment->user_id == \Auth::user()->id)
+                                                <div class="delete-comment text-right">
+                                                   <a href="{{ route('delete-comment', $comment->id) }}">Hapus</a>
+                                                </div>
+                                             @endif
+                                          </span>
                                        </span>
                                        <p>
                                           {{ $comment->comment }}

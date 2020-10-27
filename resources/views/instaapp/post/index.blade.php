@@ -22,10 +22,16 @@
 
 @section('content')
    <div class="row justify-content-center m-4">
-      <div class="col-md-8 ">
+      <div class="col-md-8">
          <div class="row">
             <div class="col-md-7">
                <img src="{{ asset('storage/' . $post['image']) }}" width="100%" alt="">
+               <div class="mt-2">
+                  @if ($post['user_id'] == \Auth::user()->id)
+                     <a href="{{ route('user.post.edit', ['username' => $user['username'], 'id' => $post['id']]) }}" class="font-size-13 text-muted m-2 "><i class="fas fa-pencil-alt"></i> Update Post</a>
+                     <a href="{{ route('user.post.delete', ['username' => $user['username'], 'id' => $post['id']]) }}" class="font-size-13 text-muted m-2"><i class="fas fa-trash-alt"></i> Delete Post</a>
+                  @endif
+               </div>
             </div>
             <div class="col-md-5">
                {{-- <img class="img-circle" src="https://www.shareicon.net/data/512x512/2017/01/06/868320_people_512x512.png" width="40px" height="40px" alt="User Avatar"> --}}
@@ -35,7 +41,9 @@
                      {{ $user['username'] }}
                   </span>
                </a>
+               
                <hr>
+
                <div class="content-body {{ $post->comments->count() > 4 ? ' komentar-scroll' : ' komentar-normal' }}" >
                   <span>{{ $post['content'] }}</span>
                   
@@ -54,7 +62,8 @@
                                     </a>
                                     <span class="text-muted float-right">{{ date('d/m/Y', strtotime($comment->created_at)) }}
                                        @if ($comment->user_id == \Auth::user()->id)
-                                          <div class="delete-comment text-right">
+                                          <div class="delete-comment text-muted text-right">
+                                             <i class="fas fa-trash-alt"></i>
                                              <a href="{{ route('delete-comment', $comment->id) }}">Hapus</a>
                                           </div>
                                        @endif
@@ -79,7 +88,7 @@
                            <span class="fas fa-thumbs-down"></span> Tidak Disukai</button>
 
                         @else
-                           <span class="fas fa-thumbs-up"></span> Disukai</button>                           
+                           <span class="fas fa-thumbs-up"></span> Disukai</button>
                         @endif
                         
                      <small class="float-right text-muted" style="margin: 8px 4px 0px 0px" >

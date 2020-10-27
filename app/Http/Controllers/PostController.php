@@ -6,6 +6,7 @@ use App\Comment;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -21,6 +22,7 @@ class PostController extends Controller
             return $query->where('username', '=', $username);
         })->where('id', '=', $id)
             ->get()->first();
+
 
         // pengguna
         $user = User::where('username', '=', $username)->first();
@@ -71,6 +73,92 @@ class PostController extends Controller
         return redirect()
             ->route('user.profile', \Auth::user()->username)
             ->with('success', 'Berhasil menambahkan postingan baru');
+    }
+
+    /**
+     * Fungsi untuk menampilkan halaman untuk update
+     *
+     * @param [type] $username
+     * @param [type] $id
+     * @return void
+     */
+    public function editPost($username, $id)
+    {
+        // Mengambil berdasarkan username profil dan id post
+        $post = Post::whereHas('users', function($query) use ($username) {
+            return $query->where('username', '=', $username);
+        })->where('id', '=', $id)
+            ->get()->first();
+
+        // pengguna
+        $user = User::where('username', '=', $username)->first();
+
+        // Cek apakah postingnn yang diupdate adalah post user atau tidak
+        if (\Auth::user()->username == $user['username']) {
+            return view('instaapp.post.update', compact('post', 'user'));
+
+        } else {
+            abort(404);
+        }
+    }
+
+    /**
+     * Fungsi untuk mengupdate postingan pengguna
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function updatePost(Request $request, $username, $id)
+    {
+        $post = Post::findOrFail($id);
+
+        $post->content = $request->get('caption');
+        
+        $image = $request->file('photo');
+
+        if ($image) {
+            if ($post->image != "" && file_exists(storage_path('app/public/' . $post->image))) {
+                Storage::delete('public/' . $post->image);
+            }
+
+            $cover_path = uploadOriginalImage($image, $username, 'posts');
+            $post->image = $cover_path;
+        }
+
+        $post->save();
+
+        return redirect()
+            ->route('user.profile', $username)
+            ->with('success', 'Postingan berhasil diupdate');
+        // dd($request->all(), $username, $id);
+    }
+
+    /**
+     * Fungsi untuk menghapus 
+     *
+     * @param [type] $id
+     * @return void
+     */
+    public function deletePost($username, $id)
+    {
+        $post = Post::findOrFail($id);
+
+        if (\Auth::user()->username == $username) {
+            // Menghapus gambar
+            if ($post->image != "" && file_exists(storage_path('app/public/' . $post->image))) {
+                Storage::delete('public/' . $post->image);
+            }
+
+            $post->delete();
+
+            return redirect()
+                ->route('user.profile', $username)
+                ->with('success', 'Postingan berhasil dihapus');
+        
+        } else {
+            abort(404);
+        }
+
     }
 
     /**
