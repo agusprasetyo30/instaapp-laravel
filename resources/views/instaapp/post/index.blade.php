@@ -52,7 +52,13 @@
                                     <a href="{{ route('user.profile', $comment->users->username) }}" style="color: black">
                                        {{ $comment->users->name }}
                                     </a>
-                                 <span class="text-muted float-right">{{ date('d/m/Y', strtotime($comment->created_at)) }}</span>
+                                    <span class="text-muted float-right">{{ date('d/m/Y', strtotime($comment->created_at)) }}
+                                       @if ($comment->user_id == \Auth::user()->id)
+                                          <div class="delete-comment text-right">
+                                             <a href="{{ route('delete-comment', $comment->id) }}">Hapus</a>
+                                          </div>
+                                       @endif
+                                    </span>
                                  </span>
                                  <p>
                                     {{ $comment->comment }}
@@ -117,13 +123,13 @@
                type:'POST',
                url:'/add-like',
                data:{id:post_id},
-               success:function(data){
+               success:function(data) {
                   if($(cObj).hasClass("like-post")){
                      $('#like-count').text(parseInt(like_count) - 1);
                      $('#like').html('<span class="fas fa-thumbs-up"></span> Disukai');
                      $(cObj).removeClass("like-post");
 
-                  }else{
+                  } else {
                      $('#like-count').text(parseInt(like_count) + 1);
                      $('#like').html('<span class="fas fa-thumbs-down"></span> Tidak Disukai');
                      $(cObj).addClass("like-post");

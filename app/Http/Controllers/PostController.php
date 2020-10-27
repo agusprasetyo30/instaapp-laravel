@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     /**
-     * Undocumented function
+     * Fungsi untuk menampilkan post dan komentar
      *
      * @return void
      */
@@ -37,7 +37,7 @@ class PostController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Fungsi untuk menampilkan halaman tambah post
      *
      * @return void
      */
@@ -47,7 +47,7 @@ class PostController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Untuk menyimpan gambar dan postingan
      *
      * @param Request $request
      * @return void
@@ -74,7 +74,7 @@ class PostController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Fungsi untuk menambahkan komentar
      *
      * @param Request $request
      * @return void
@@ -102,16 +102,32 @@ class PostController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Fungsi untuk menghapus komentar
+     *
+     * @param [type] $id
+     * @return void
+     */
+    public function deleteComment($id)
+    {
+        $comment = Comment::findOrFail($id);
+
+        // dd($comment);
+        $comment->delete();
+
+        return redirect()->back();
+    }
+
+    /**
+     * Untuk menambahkan komentar
      *
      * @param Request $request
      * @return void
      */
-    public function addLike(Request $request){
+    public function addLike(Request $request) {
 
         $post = Post::find($request->id);
         $response = \Auth::user()->toggleLike($post);
 
-        return response()->json(['success'=>$response]);
+        return response()->json(['success' => $response]);
     }
 }

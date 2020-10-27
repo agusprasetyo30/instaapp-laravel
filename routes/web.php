@@ -39,9 +39,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/{username}/post/{id}', 'PostController@post')->name('user.post.detail');
 
     Route::post('/add-comment', 'PostController@addComment')->name('add-comment');
+    Route::get('/delete-comment/{id}', 'PostController@deleteComment')->name('delete-comment');
 
     Route::post('/add-like', 'PostController@addLike')->name('add-like');
-
 });
 
 

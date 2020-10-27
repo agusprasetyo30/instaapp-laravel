@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class ProfilController extends Controller
 {
     /**
-     * Undocumented function
+     * Untuk menampilkan profil sesuai profil
      *
      * @return void
      */
@@ -29,7 +29,7 @@ class ProfilController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Untuk menampilkan halaman pengaturan
      *
      * @return void
      */
@@ -39,7 +39,7 @@ class ProfilController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Fungsi untuk menampilkan halaman Update Profil
      *
      * @param Request $request
      * @return void

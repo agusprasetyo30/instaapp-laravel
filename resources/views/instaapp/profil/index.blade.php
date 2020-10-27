@@ -32,9 +32,12 @@
                @endif
             </div>
             <div class="col-md-8">
-               <h4 class="d-inline">{{ $user['name'] }}</h4> 
-               <a class="btn btn-sm btn-edit-profil" href="{{ route('pengaturan') }}">Edit Profil</a>
-               <a class="btn btn-sm btn-edit-profil" href="{{ route('add-post-page') }}">Tambah Postingan</a>
+               <h4 class="d-inline">{{ $user['name'] }}</h4>
+               
+               @if (Request::get('profile') == 'profile')
+                  <a class="btn btn-sm btn-edit-profil" href="{{ route('pengaturan') }}">Edit Profil</a>
+                  <a class="btn btn-sm btn-edit-profil" href="{{ route('add-post-page') }}">Tambah Postingan</a>
+               @endif 
                
                <h5>({{ $user['username'] }})</h5>
                <small>{{ $user['email'] }}</small>
