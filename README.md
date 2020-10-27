@@ -6,10 +6,11 @@
 2. `$ composer install`
 3. copy `env.example` dan rubah menjadi `.env`, setelah itu konfigurasi database
 4. `$ php artisan key:generate`
-5. `$ php artisan migrate` untuk membuat **tabel**
-6. `$ php artisan db:seed` untuk mengisi dummy data pada tabel
-7. `$ php artisan serve` jalankan program
-8. Untuk login ke sistem dapat dimenggunakan data dummy yang dibuat pada seeder yaitu username : `dummy123`, Password : `dummy123` 
+5. `$ php artisan storage:link`
+6. `$ php artisan migrate` untuk membuat **tabel**
+7. `$ php artisan db:seed` untuk mengisi dummy data pada tabel
+8. `$ php artisan serve` jalankan program
+9. Untuk login ke sistem dapat dimenggunakan data dummy yang dibuat pada seeder yaitu username : `dummy123`, Password : `dummy123` 
 
 # Screenshot
 1. Login Area
