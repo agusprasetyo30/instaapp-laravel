@@ -1,11 +1,19 @@
 # InstaApp Coding Test
 
-# features
+# Features
+
+- Login & Register akun baru
+- Dashboard Awal untuk menampilkan postingan (Seperti Instagram namun sepertinya tidak mirip hehe)
+- Menampilkan Profil, Edit Profil dan Ubah Password
+- Menampilkan Detail Postingan
+- Menambahkan, Mengedit, dan Menghapus Postingan
+- Menambahkan dan Menghapus Komentar
+- Menambahkan Like Postingan
 
 
 # How to install
 
-1. clone/download file sistem ini
+1. clone/download file di repo ini
 2. `$ composer install`
 3. copy `env.example` dan rubah menjadi `.env`, setelah itu konfigurasi database
 4. `$ php artisan key:generate`
@@ -29,7 +37,7 @@
 <img src="./3. Dashboard (2).png" width="100%">
 
 6. Detail Post
-<img src="./4. Detail Post.png" width="100%">
+<img src="./detail post.png" width="100%">
 
 7. Profile
 <img src="./5. Profile.png" width="100%">
@@ -38,6 +46,9 @@
 <img src="./6. Edit Profile.jpg" width="100%">
 
 9. Tambah Postingan
+<img src="./7. Tambah Postingan.png" width="100%">
+
+10. Edit Postingan
 <img src="./7. Tambah Postingan.png" width="100%">
 
 # Package Use
