@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -16,10 +17,10 @@ class UserSeeder extends Seeder
 
         $user = new User();
 
-        $user->nama = "Dummy";
+        $user->name = "Dummy";
         $user->username = "dummy123";
         $user->email = "dummy123@gmail.com";
-        $user->password = "dummy123";
+        $user->password = Hash::make("dummy123");
         $user->avatar = "NO IMAGE";
 
         $user->save();
